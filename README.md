@@ -1,12 +1,12 @@
 MiniSearch-Engine
 =================
-1. Introduction
+Introduction
 
 This report details our experiments on cloud and methodologies we used for the Cloud Computing Project “Mini Search Engine”. Project is divided on different modules namely, Indexer, Crawler, Storage, Page Rank Map Reduce application & a front end web search page.
 
 The first implementation was local and ran indexer, crawler, storage, map reduce, and searcher locally. However, for the final delivery we are using diffident cloud services in IaaS, Paas & SaaS domains. Specifically, our indexer & crawler is running locally, Page Rank is running on Amazon Web Services using the S3 Storage and indexer is storing the indexes (words with position) on the storage provided by the service Cloud Xeround which in turns uses Amazon at back end. The search webpage is hosted on Sigma which queries the database hosted on cloud.
 
-2. Implementation
+Implementation
 
  Cloud platform and infrastructure
 
@@ -62,7 +62,7 @@ When a website has just one of the word from the search string but contains mult
 
 The factor d can differ based on the requirement that whether we want to give more importance to the page rank or to the no occurrences & proximity. However, we have considered the proximity to be most important followed by page rank and the occurrence in that order.
 ￼￼￼￼￼￼￼￼
-3. Experiments
+Experiments
 
 We have categorized our experiments in the following terms,
 
@@ -78,7 +78,7 @@ We ran our search experiment using the different values of m (as defined above).
 
 By the changing the value of d we would see the difference in page rank of each page, for example if we decrease d, the websites which does not have lots of incoming links, will get better page rank and vice versa.
 
-4. Challengesfacedindifferentexperimentsaftergoingtocloud
+Challengesfacedindifferentexperimentsaftergoingtocloud
 
  Now our crawler is crawling the websites deeper and deeper, however when we performed our experiment on cloud we faced difficulties as it is highly un deterministic to find the size of each newly crawled website and the number of new websites found in each level. For example, we ran our experiment with Wikipedia, starting from one random article; however, with just 2 level deep crawling we found 97000 new web pages. When indexer started indexing all those 97000 websites, it was taking huge time, storage and bandwidth as all the content (index) was being stored on cloud. We performed the similar experiment with number of other websites such as google.com and academic websites. With just google.com which has very less content on its pages, with just 800 crawled pages we could find 600000 new rows to be inserted in the cloud storage. Since we have the limited and trail resources on cloud infrastructure this process was no so fast.
 
@@ -88,6 +88,6 @@ Keeping the above constraints in mind, we performed all our experiments using ju
 
  With our multiple words search, we realized that the way we are storing the words and the positions in the database is not one of the best options. Actually for huge storage, instead, we should have used the other storage data structures where we could perform fast searches of words in order to calculate the proximity which is computationally complex.
 
-5. Conclusion
+Conclusion
 
 Overall, it was a great learning curve for all of us as none of us had any back ground in cloud computing before this course. We learned in detail about the new technologies, the available cloud platforms and different resources we used. In this process we faced few difficulties which only increased our knowledge and if we work on Cloud again in future, this experience would come handy.
